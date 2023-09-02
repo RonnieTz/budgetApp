@@ -7,7 +7,6 @@ import {
   TableBody,
   TableCell,
   TableContainer,
-  TableFooter,
   TableHead,
   TableRow,
   Typography,
@@ -24,7 +23,7 @@ import {
 } from "@/redux/budgetSlice";
 import AddTransaction from "@/components/AddTransaction";
 
-const page = ({ params }: any) => {
+const Page = ({ params }: any) => {
   const { user } = useAuth0();
   useEffect(() => {
     dispatch(fetchTransactions(user?.nickname));
@@ -115,4 +114,4 @@ const page = ({ params }: any) => {
   );
 };
 
-export default page;
+export default Page;
