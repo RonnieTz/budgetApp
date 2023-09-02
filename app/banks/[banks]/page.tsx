@@ -25,14 +25,14 @@ import AddTransaction from "@/components/AddTransaction";
 
 const Page = ({ params }: any) => {
   const { user } = useAuth0();
+  const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     dispatch(fetchTransactions(user?.nickname));
-  }, [user]);
+  }, [user, dispatch]);
   const { transactions, transactionDeleteMode } = useSelector(
     (state: RootState) => state.budget
   );
   const bank = params.banks.replaceAll("%20", " ");
-  const dispatch = useDispatch<AppDispatch>();
 
   const handleDelete = (id: string) => {
     dispatch(deleteTransaction(id));

@@ -32,7 +32,7 @@ const SideDrawer = () => {
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     dispatch(fetchBanks(user?.nickname));
-  }, [user]);
+  }, [user, dispatch]);
   const handleOpen = () => {
     dispatch(setDrawerVisible(!drawerVisible));
   };
